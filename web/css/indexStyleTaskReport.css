@@ -1,0 +1,18 @@
+html {
+    font-size: 18px;
+}
+
+h5 {
+    color: #485460;
+}
+
+body {
+    margin: 0;
+}
+
+.block {
+    margin: 20%;
+    padding: 5%;
+    background-color: #4bcffa;
+    border-radius: 20px;
+}

@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="taskReportWEB:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/taskReportWEB_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="taskReportWEB/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="taskReportWEB" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="windchill-11.0.M030.CPS09" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
