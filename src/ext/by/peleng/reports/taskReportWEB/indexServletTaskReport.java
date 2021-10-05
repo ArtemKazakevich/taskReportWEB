@@ -16,10 +16,10 @@ public class indexServletTaskReport extends HttpServlet {
           String lastName = request.getParameter("lastName");
           String startDate = request.getParameter("startDate");
           String endDate = request.getParameter("endDate");
-     
+          
           SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
           SimpleDateFormat myFormat = new SimpleDateFormat("dd.MM.yyyy");
-     
+          
           String startD = "";
           String endD = "";
           try {

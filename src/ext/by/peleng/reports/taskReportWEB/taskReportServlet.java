@@ -81,6 +81,7 @@ public class taskReportServlet extends HttpServlet {
      
           listWorkItem.sort((WorkItem o1, WorkItem o2) -> o2.getModifyTimestamp().compareTo(o1.getModifyTimestamp()));
           
+          request.getSession().setAttribute("userName", user.getFullName().replace(",", ""));
           request.getSession().setAttribute("listWorkItem", listWorkItem);
           request.getSession().setAttribute("listPromotionNotice", listPromotionNotice);
           request.getSession().setAttribute("listWtChangeActivity2", listWtChangeActivity2);
