@@ -12,7 +12,7 @@
 
 <body class="row align-items-center justify-content-center bg-light">
 
-<div class="block col-md-3">
+<div class="block col-xs-8 col-sm-6 col-md-3">
     <form method="post" action="${pageContext.request.contextPath}/servlet/taskReportWEB/index">
         <div class="form-floating mb-3">
             <input type="text" id="lastName" name="lastName" class="form-control form_input" placeholder="Иванов*"

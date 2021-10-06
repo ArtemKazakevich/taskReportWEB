@@ -64,8 +64,8 @@
 %>
 
 <div class="mx-5">
-    <table class="table table-hover text-center">
-        <thead>
+    <table class="table table-hover text-center table-sm">
+        <thead class="table-secondary">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Тема</th>
@@ -76,9 +76,10 @@
         <tbody>
 
         <%
+
             /*
-    Запрос на продвижение
-    */
+           Запрос на продвижение
+           */
             for (PromotionNotice p : listPromotionNotice) {
                 String time = "";
                 for (WorkItem workItem : listWorkItem) {
@@ -88,34 +89,50 @@
         %>
 
         <tr>
-            <th scope="row"><%=number%></th>
-            <td>Запрос на продвижение - <%=p.getNumber()%></td>
-            <td>
-                <ul class="list-group list-group-flush">
-                    <%
-
-                        try {
-                            promotionTargets = getPromotionTargets(p); //получаем все объекты для продвижения
-                        } catch (WTException e) {
-                            e.printStackTrace();
-                        }
-
-                        for (String s : promotionTargets) {
-
-                    %>
-
-                    <li class="list-group-item"><%=s%>
-                    </li>
-
-                    <%
-
-                        }
-
-                    %>
-
-                </ul>
+            <th scope="row"><%=number%>
+            </th>
+            <td>Запрос на продвижение - <%=p.getNumber()%>
             </td>
-            <td><%=time%></td>
+            <td>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Список объектов
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-card-list" viewBox="0 0 16 16">
+                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                        <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                    </svg>
+                </button>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <ul class="list-group list-group-flush">
+                            <%
+
+                                try {
+                                    promotionTargets = getPromotionTargets(p); //получаем все объекты для продвижения
+                                } catch (WTException e) {
+                                    e.printStackTrace();
+                                }
+
+                                for (String s : promotionTargets) {
+
+                            %>
+
+                            <li class="list-group-item"><%=s%>
+                            </li>
+
+                            <%
+
+                                }
+
+                            %>
+
+                        </ul>
+                    </div>
+                </div>
+            </td>
+            <td><%=time%>
+            </td>
         </tr>
 
         <%
@@ -137,50 +154,58 @@
         %>
 
         <tr>
-            <th scope="row"><%=number%></th>
-            <td>Изменение по извещению - <%=w.getNumber()%></td>
-            <td>
-                <ul class="list-group list-group-flush">
-                    <p>Объекты:</p>
-                    <%
-
-                        try {
-                            resultingObjects = getResultingObjects(w); // получаем все результирующие объекты
-                        } catch (WTException e) {
-                            e.printStackTrace();
-                        }
-
-                        for (String s : resultingObjects) {
-
-                    %>
-
-                    <li class="list-group-item"><%=s%>
-                    </li>
-
-                    <%
-
-                        }
-
-                    %>
-
-                </ul>
+            <th scope="row"><%=number%>
+            </th>
+            <td>Изменение по извещению - <%=w.getNumber()%>
             </td>
-            <td><%=time%></td>
+            <td>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Список объектов
+                </button>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <ul class="list-group list-group-flush">
+                            <%
+
+                                try {
+                                    resultingObjects = getResultingObjects(w); // получаем все результирующие объекты
+                                } catch (WTException e) {
+                                    e.printStackTrace();
+                                }
+
+                                for (String s : resultingObjects) {
+
+                            %>
+
+                            <li class="list-group-item"><%=s%>
+                            </li>
+
+                            <%
+
+                                }
+
+                            %>
+
+                        </ul>
+                    </div>
+                </div>
+            </td>
+            <td><%=time%>
+            </td>
         </tr>
 
+        <%
+
+                        break;
+                    }
+                }
+            }
+        %>
 
         </tbody>
     </table>
 </div>
-
-
-<%
-
-                break;
-            }
-        }
-    }
-%>
 
 <%!
     private static List<String> getPromotionTargets(PromotionNotice promotionNotice) throws WTException {
@@ -217,6 +242,7 @@
     }
 %>
 
+<script src="${pageContext.request.contextPath}/netmarkets/jsp/by/peleng/reports/taskReportWEB/script/taskReportScript.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
