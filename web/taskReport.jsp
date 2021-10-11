@@ -27,7 +27,13 @@
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
-<body>
+<body class="bg-light">
+
+<div id="page-preloader" class="preloader d-flex justify-content-center">
+    <div class="spinner-border text-primary loader" role="status">
+        <span class="visually-hidden">Загрузка...</span>
+    </div>
+</div>
 
 <div class="my-2 d-flex justify-content-center">
     <form class="col-md-4" method="get" action="${pageContext.request.contextPath}/servlet/taskReportWEB/index">
