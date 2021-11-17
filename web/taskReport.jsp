@@ -65,6 +65,7 @@
     List<String> resultingObjects = new ArrayList<>();
 
     int number = 0;
+    int oCounter = 0;
 
 %>
 
@@ -72,9 +73,9 @@
     <table class="table table-hover text-center table-sm">
         <thead class="table-secondary">
         <tr>
-            <th scope="col">#</th>
+            <th scope="col"># (<span id="number"></span>)</th>
             <th scope="col">Тема</th>
-            <th scope="col">Объекты</th>
+            <th scope="col">Объекты (<span id="oCounter"></span>)</th>
             <th scope="col">Дата завершения</th>
         </tr>
         </thead>
@@ -110,6 +111,7 @@
                     }
 
                     countObject = promotionTargets.size();
+                    oCounter += countObject;
 
                 %>
 
@@ -186,6 +188,7 @@
                     }
 
                     countObject = resultingObjects.size();
+                    oCounter += countObject;
 
                 %>
 
@@ -238,6 +241,11 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    document.getElementById("number").innerHTML = <%=number%>;
+    document.getElementById("oCounter").innerHTML = <%=oCounter%>;
+</script>
 
 <%!
     private static List<String> getPromotionTargets(PromotionNotice promotionNotice) throws WTException {
