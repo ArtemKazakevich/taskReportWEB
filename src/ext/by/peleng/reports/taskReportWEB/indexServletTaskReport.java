@@ -37,7 +37,6 @@ public class indexServletTaskReport extends HttpServlet {
           response.sendRedirect(path);
      }
      
-     // TODO: возможно нужно будет заменить на request.getRequestDispatcher("/netmarkets/jsp/by/peleng/reports/taskReportWEB/index.jsp").forward(request, response);
      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           request.getRequestDispatcher("/netmarkets/jsp/by/peleng/reports/taskReportWEB/index.jsp").forward(request, response);
      }
